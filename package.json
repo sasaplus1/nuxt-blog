@@ -4,7 +4,16 @@
   "version": "0.0.0",
   "author": "sasa+1 <sasaplus1@gmail.com>",
   "devDependencies": {
+    "eslint": "^4.12.1",
     "fixpack": "^2.3.1"
+  },
+  "eslintConfig": {
+    "env": {
+      "es6": true,
+      "node": true
+    },
+    "extends": "eslint:recommended",
+    "root": true
   },
   "license": "MIT",
   "main": "./index.js",
@@ -14,6 +23,8 @@
     "url": "https://github.com/sasaplus1/nuxt-blog.git"
   },
   "scripts": {
-    "fixpack": "fixpack"
+    "eslint": "eslint ./index.js",
+    "fixpack": "fixpack",
+    "test": "npm run eslint"
   }
 }
