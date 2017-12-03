@@ -9,10 +9,12 @@
     "path-to-regexp": "^2.1.0"
   },
   "devDependencies": {
+    "ava": "^0.24.0",
     "eslint": "^4.12.1",
     "fixpack": "^2.3.1",
     "markdown-it": "^8.4.0",
-    "nuxt": "^1.0.0-rc11"
+    "nuxt": "^1.0.0-rc11",
+    "portfinder": "^1.0.13"
   },
   "eslintConfig": {
     "env": {
@@ -35,6 +37,6 @@
   "scripts": {
     "eslint": "eslint ./index.js",
     "fixpack": "fixpack",
-    "test": "npm run eslint"
+    "test": "npm run eslint && ava"
   }
 }
