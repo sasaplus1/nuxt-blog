@@ -38,8 +38,7 @@
     "url": "https://github.com/sasaplus1/nuxt-blog.git"
   },
   "scripts": {
-    "eslint": "eslint ./index.js",
     "fixpack": "fixpack",
-    "test": "npm run eslint && ava"
+    "test": "eslint . && ava"
   }
 }
