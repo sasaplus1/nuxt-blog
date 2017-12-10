@@ -29,7 +29,8 @@
   },
   "license": "MIT",
   "main": "./index.js",
-  "peerDependencies": {
+  "optionalDependencies": {
+    "highlight.js": "^9",
     "markdown-it": "^8"
   },
   "readmeFilename": "./README.md",
