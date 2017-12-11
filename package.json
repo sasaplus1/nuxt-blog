@@ -37,6 +37,9 @@
     "highlight.js": "^9",
     "markdown-it": "^8"
   },
+  "peerDependencies": {
+    "nuxt": "^1"
+  },
   "readmeFilename": "./README.md",
   "repository": {
     "type": "git",
