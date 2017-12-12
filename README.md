@@ -3,6 +3,7 @@
 [![Build Status](https://travis-ci.org/sasaplus1/nuxt-blog.svg)](https://travis-ci.org/sasaplus1/nuxt-blog)
 [![Dependency Status](https://gemnasium.com/sasaplus1/nuxt-blog.svg)](https://gemnasium.com/sasaplus1/nuxt-blog)
 [![NPM version](https://badge.fury.io/js/nuxt-blog.svg)](http://badge.fury.io/js/nuxt-blog)
+[![Try nuxt-blog on RunKit](https://badge.runkitcdn.com/nuxt-blog.svg)](https://npm.runkit.com/nuxt-blog)
 
 blog module for [nuxt](https://nuxtjs.org/)
 
@@ -19,6 +20,55 @@ $ npm install --no-optional nuxt-blog
 ```
 
 ## Setup
+
+### nuxt.config.js
+
+```js
+const path = require('path');
+
+module.exports = {
+  modules: [
+    [
+      'nuxt-blog', {
+        dirname: path.join(__dirname, 'posts'),
+      },
+    ],
+  ],
+};
+```
+
+### pages/\_yyyy/\_mm/\_dd/\_no.vue
+
+```html
+<template>
+  <div>
+    <h1>{{ title }}</h1>
+    <div>{{ body }}</div>
+  </div>
+</template>
+
+<script>
+  import axios from 'axios';
+
+  export default {
+    async asyncData(context) {
+      const {
+        route,
+      } = context;
+
+      console.log(route.fullPath);
+
+      return JSON.parse(
+        await axios.get(`/api/${route.fullPath}`, {
+          headers: {
+            'X-Requested-With': 'XMLHttpRequest',
+          },
+        })
+      );
+    },
+  }
+</script>
+```
 
 ## Options
 
@@ -53,7 +103,7 @@ more details: [Modules](https://nuxtjs.org/guide/modules)
 
 ### dirname
 
-**required**
+**required option**
 
 type: `string`
 
@@ -63,17 +113,52 @@ post's directory path.
 
 type: `Object`
 
+default: syntax highlight with [highlight.js](https://www.npmjs.com/package/highlight.js)
+
 options for [markdown-it](https://www.npmjs.com/package/markdown-it).
+
+if `markdown.parser` is set, this option is ignore.
+
+default value can get from `require('nuxt-blog/utils').getDefaultMarkdownOptions()`.
+
+#### example
+
+```js
+{
+  markdown: {
+    options: {
+      linkify: true,
+      typographer: true,
+    },
+  },
+}
+```
 
 ### markdown.parser
 
 type: `Function`
 
+default: commonmark mode's markdown-it with highlight.js
+
 Markdown parser function.
 
-it option is higher priority than `markdown.options`.
+this option is higher priority than `markdown.options`.
 
 if it is set, `markdown.options` not pass to Markdown parser.
+
+default value can get from `require('nuxt-blog/utils').getDefaultMarkdownParser()`.
+
+#### example
+
+if you want to use [marked](https://github.com/markedjs/marked):
+
+```js
+{
+  markdown: {
+    parser: require('marked'),
+  },
+}
+```
 
 ### prefix
 
@@ -81,7 +166,7 @@ type: `string`
 
 default: `/api`
 
-prefix for URL of API.
+API URL prefix.
 
 ## Debug
 
