@@ -15,6 +15,8 @@
     "fixpack": "^2.3.1",
     "get-port": "^3.2.0",
     "highlight.js": "^9.12.0",
+    "husky": "^0.14.3",
+    "lint-staged": "^6.1.1",
     "markdown-it": "^8.4.1",
     "nuxt": "^1.3.0",
     "request": "^2.83.0",
@@ -30,6 +32,10 @@
       "sourceType": "module"
     },
     "root": true
+  },
+  "lint-staged": {
+    "*.js": "eslint",
+    "**/*.js": "eslint"
   },
   "license": "MIT",
   "main": "./index.js",
@@ -47,6 +53,7 @@
   },
   "scripts": {
     "fixpack": "fixpack",
+    "precommit": "lint-staged",
     "test": "eslint . && ava"
   }
 }
