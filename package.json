@@ -33,11 +33,15 @@
     },
     "root": true
   },
+  "files": [
+    "index.js",
+    "utils.js"
+  ],
+  "license": "MIT",
   "lint-staged": {
     "*.js": "eslint",
     "**/*.js": "eslint"
   },
-  "license": "MIT",
   "main": "./index.js",
   "optionalDependencies": {
     "highlight.js": "^9",
