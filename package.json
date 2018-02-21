@@ -11,6 +11,7 @@
   },
   "devDependencies": {
     "ava": "^0.25.0",
+    "axios": "^0.18.0",
     "eslint": "^4.18.0",
     "fixpack": "^2.3.1",
     "get-port": "^3.2.0",
@@ -58,6 +59,7 @@
   },
   "scripts": {
     "fixpack": "fixpack",
+    "nuxt": "nuxt",
     "precommit": "lint-staged",
     "test": "eslint . && ava"
   }
