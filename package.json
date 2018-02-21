@@ -40,7 +40,8 @@
   "license": "MIT",
   "lint-staged": {
     "*.js": "eslint",
-    "**/*.js": "eslint"
+    "**/*.js": "eslint",
+    "package.json": "fixpack"
   },
   "main": "./index.js",
   "optionalDependencies": {
