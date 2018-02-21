@@ -56,8 +56,6 @@ module.exports = {
         route,
       } = context;
 
-      console.log(route.fullPath);
-
       return JSON.parse(
         await axios.get(`/api/${route.fullPath}`, {
           headers: {
