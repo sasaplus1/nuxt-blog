@@ -26,7 +26,7 @@ test('can set markdown options', async function(t) {
 
   const port = await getPort();
 
-  nuxt.listen(port, 'localhost');
+  await nuxt.listen(port, 'localhost');
 
   const json = await request({
     uri: `http://localhost:${port}/api/post.md`,
@@ -42,5 +42,5 @@ test('can set markdown options', async function(t) {
 
   t.true(data.body === '<p>&lt;br /&gt;</p>\n');
 
-  nuxt.close();
+  await nuxt.close();
 });
