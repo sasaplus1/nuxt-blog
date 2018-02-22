@@ -9,11 +9,7 @@
     async asyncData(context) {
       const {
         data,
-      } = await axios.get('http://localhost:3000/api/index.md', {
-        headers: {
-          'X-Requested-With': 'XMLHttpRequest',
-        },
-      });
+      } = await axios.get('http://localhost:3000/api/index.md');
 
       return data;
     },

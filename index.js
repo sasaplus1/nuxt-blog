@@ -34,17 +34,6 @@ async function middleware(req, res) {
 
   debug('req.url', req.url);
 
-  const xRequestedWith = req.headers['x-requested-with'];
-
-  debug('X-Requested-With', xRequestedWith);
-
-  if (!/^XMLHttpRequest$/i.test(xRequestedWith)) {
-    res.writeHead(403);
-    res.end('Forbidden');
-
-    return;
-  }
-
   const filename =
     (/\/$/.test(req.url)) ?
     path.join(dirname, req.url, 'index.md') :
