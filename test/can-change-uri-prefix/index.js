@@ -22,7 +22,7 @@ test('can change URI prefix', async function(t) {
 
   const port = await getPort();
 
-  nuxt.listen(port, 'localhost');
+  await nuxt.listen(port, 'localhost');
 
   const json = await request({
     uri: `http://localhost:${port}/posts/post.md`,
@@ -39,5 +39,5 @@ test('can change URI prefix', async function(t) {
   t.true(typeof data.meta === 'object');
   t.true(typeof data.body === 'string');
 
-  nuxt.close();
+  await nuxt.close();
 });
