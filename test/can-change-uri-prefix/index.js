@@ -26,9 +26,6 @@ test('can change URI prefix', async function(t) {
 
   const json = await request({
     uri: `http://localhost:${port}/posts/post.md`,
-    headers: {
-      'X-Requested-With': 'XMLHttpRequest',
-    },
   });
 
   let data;

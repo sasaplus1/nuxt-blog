@@ -30,9 +30,6 @@ test('can set markdown options', async function(t) {
 
   const json = await request({
     uri: `http://localhost:${port}/api/post.md`,
-    headers: {
-      'X-Requested-With': 'XMLHttpRequest',
-    },
   });
 
   let data;

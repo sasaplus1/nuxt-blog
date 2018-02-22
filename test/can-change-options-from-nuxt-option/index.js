@@ -25,9 +25,6 @@ test('can change options from nuxt option', async function(t) {
 
   const json = await request({
     uri: `http://localhost:${port}/posts/post.md`,
-    headers: {
-      'X-Requested-With': 'XMLHttpRequest',
-    },
   });
 
   let data;

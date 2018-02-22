@@ -57,11 +57,7 @@ module.exports = {
       } = context;
 
       return JSON.parse(
-        await axios.get(`/api/${route.fullPath}`, {
-          headers: {
-            'X-Requested-With': 'XMLHttpRequest',
-          },
-        })
+        await axios.get(`/api/${route.fullPath}`)
       );
     },
   }
