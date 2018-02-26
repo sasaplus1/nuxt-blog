@@ -64,6 +64,7 @@
     "fixpack": "fixpack",
     "nuxt": "nuxt",
     "precommit": "lint-staged",
+    "prenuxt": "bash -c \"cat <(printf -- '---\\n---\\n') ./README.md > ./nuxt/posts/index.md\"",
     "test": "eslint . && ava"
   }
 }
