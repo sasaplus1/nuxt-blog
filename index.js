@@ -6,7 +6,7 @@ const debug = require('debug')('nuxt:blog');
 const frontMatter = require('front-matter');
 const get = require('lodash.get');
 
-const utils = require('./utils');
+const utils = require('./src/utils');
 
 const readFile = util.promisify(fs.readFile);
 
@@ -128,3 +128,6 @@ function blog(moduleOptions) {
 
 module.exports = blog;
 module.exports.meta = require('./package.json');
+
+module.exports.getDefaultMarkdownOptions = utils.getDefaultMarkdownOptions;
+module.exports.getDefaultMarkdownParser = utils.getDefaultMarkdownParser;
