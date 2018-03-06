@@ -113,7 +113,7 @@ options for [markdown-it](https://www.npmjs.com/package/markdown-it).
 
 if `markdown.parser` is set, this option is ignore.
 
-default value can get from `require('nuxt-blog/utils').getDefaultMarkdownOptions()`.
+default value can get from `require('nuxt-blog').getDefaultMarkdownOptions()`.
 
 #### example
 
@@ -140,7 +140,7 @@ this option is higher priority than `markdown.options`.
 
 if it is set, `markdown.options` not pass to Markdown parser.
 
-default value can get from `require('nuxt-blog/utils').getDefaultMarkdownParser()`.
+default value can get from `require('nuxt-blog').getDefaultMarkdownParser()`.
 
 #### example
 
