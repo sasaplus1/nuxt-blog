@@ -57,7 +57,7 @@ module.exports = {
       } = context;
 
       return JSON.parse(
-        await axios.get(`/api/${route.fullPath}`)
+        await axios.get(`http://localhost:3000/api/${route.fullPath}`)
       );
     },
   }
