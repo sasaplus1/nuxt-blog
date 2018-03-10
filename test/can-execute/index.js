@@ -20,8 +20,8 @@ test('can execute', async function(t) {
 
   const port = await getPort();
 
-  nuxt.listen(port, 'localhost');
-  nuxt.close(
-    () => t.pass()
-  );
+  await nuxt.listen(port, 'localhost');
+  await nuxt.close();
+
+  t.pass();
 });

@@ -6,7 +6,7 @@ const debug = require('debug')('nuxt:blog');
 const frontMatter = require('front-matter');
 const get = require('lodash.get');
 
-const utils = require('./utils');
+const utils = require('./src/utils');
 
 const readFile = util.promisify(fs.readFile);
 
@@ -33,17 +33,6 @@ async function middleware(req, res) {
   debug('prefix', prefix);
 
   debug('req.url', req.url);
-
-  const xRequestedWith = req.headers['x-requested-with'];
-
-  debug('X-Requested-With', xRequestedWith);
-
-  if (!/^XMLHttpRequest$/i.test(xRequestedWith)) {
-    res.writeHead(403);
-    res.end('Forbidden');
-
-    return;
-  }
 
   const filename =
     (/\/$/.test(req.url)) ?
@@ -139,3 +128,6 @@ function blog(moduleOptions) {
 
 module.exports = blog;
 module.exports.meta = require('./package.json');
+
+module.exports.getDefaultMarkdownOptions = utils.getDefaultMarkdownOptions;
+module.exports.getDefaultMarkdownParser = utils.getDefaultMarkdownParser;

@@ -24,13 +24,10 @@ test('can set markdown parser', async function(t) {
 
   const port = await getPort();
 
-  nuxt.listen(port, 'localhost');
+  await nuxt.listen(port, 'localhost');
 
   const json = await request({
     uri: `http://localhost:${port}/api/post.md`,
-    headers: {
-      'X-Requested-With': 'XMLHttpRequest',
-    },
   });
 
   let data;
@@ -43,5 +40,5 @@ test('can set markdown parser', async function(t) {
 
   t.true(data.body === '# hello\n');
 
-  nuxt.close();
+  await nuxt.close();
 });
